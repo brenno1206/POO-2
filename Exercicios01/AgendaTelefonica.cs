@@ -4,23 +4,14 @@ namespace PrimeiroProjeto
 {
     public class AgendaTelefonica
     {
-        private Dictionary<string, Contato> Colecao;
+        private Dictionary<string, Contato> Agenda;
 
-        public AgendaTelefonica() => Colecao = [];
+        public AgendaTelefonica() => Agenda = [];
 
-        public void Inserir(string nome, Contato contato) => Colecao.Add(nome, contato);
-        public string BuscarNumero(string nome) {
-            Contato contato = Colecao[nome];
-            if (contato == null)
-            {
-                return "";
-            }
-            else
-            {
-                return contato.Numero;
-            }
-        } 
-        public void Remover(string nome) => Colecao.Remove(nome);
-        public int Tamanho() => Colecao.Count;
+        public void InserirContato(Contato contato) => Agenda.Add(contato.Nome, contato);
+        public Contato BuscarContato(string nome) => Agenda[nome];
+
+        public void Remover(string nome) => Agenda.Remove(nome);
+        public int Tamanho() => Agenda.Count;
     }
 }
